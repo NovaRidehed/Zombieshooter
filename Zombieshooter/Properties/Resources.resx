@@ -136,4 +136,16 @@
   <data name="dualwield3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dualwield3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="revolver_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\revolver_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shotgun_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shotgun_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wilhelm_scream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wilhelm_scream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="zombie_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombie_death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

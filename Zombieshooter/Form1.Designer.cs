@@ -28,47 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            components = new System.ComponentModel.Container();
+            picShotgun = new PictureBox();
+            picRevolver = new PictureBox();
             pictureBox4 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            timerMove = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
+            timerSpawn = new System.Windows.Forms.Timer(components);
+            buttonStart = new Button();
+            labelScore = new Label();
+            ((System.ComponentModel.ISupportInitialize)picShotgun).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picRevolver).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox2
+            // picShotgun
             // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.sawedoff;
-            pictureBox2.Location = new Point(130, 144);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(439, 110);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            picShotgun.BackColor = Color.Transparent;
+            picShotgun.Image = Properties.Resources.sawedoff;
+            picShotgun.Location = new Point(130, 144);
+            picShotgun.Name = "picShotgun";
+            picShotgun.Size = new Size(439, 110);
+            picShotgun.SizeMode = PictureBoxSizeMode.Zoom;
+            picShotgun.TabIndex = 1;
+            picShotgun.TabStop = false;
+            picShotgun.Click += picShotgun_Click;
             // 
-            // pictureBox3
+            // picRevolver
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = Properties.Resources.revolver;
-            pictureBox3.Location = new Point(190, -3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(242, 117);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            picRevolver.BackColor = Color.Transparent;
+            picRevolver.Image = Properties.Resources.revolver;
+            picRevolver.Location = new Point(190, -3);
+            picRevolver.Name = "picRevolver";
+            picRevolver.Size = new Size(242, 117);
+            picRevolver.SizeMode = PictureBoxSizeMode.Zoom;
+            picRevolver.TabIndex = 2;
+            picRevolver.TabStop = false;
+            picRevolver.Click += picRevolver_Click;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = Properties.Resources.zombie;
-            pictureBox4.Location = new Point(974, 12);
+            pictureBox4.Location = new Point(1163, 12);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(299, 466);
+            pictureBox4.Size = new Size(299, 381);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 3;
             pictureBox4.TabStop = false;
+            pictureBox4.Visible = false;
+            // 
+            // timerMove
+            // 
+            timerMove.Enabled = true;
+            timerMove.Tick += timerMove_Tick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1163, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 29);
+            label1.TabIndex = 4;
+            label1.Text = "HP: 328";
+            label1.Visible = false;
+            // 
+            // timerSpawn
+            // 
+            timerSpawn.Enabled = true;
+            timerSpawn.Interval = 5000;
+            timerSpawn.Tick += timerSpawn_Tick;
+            // 
+            // buttonStart
+            // 
+            buttonStart.BackColor = Color.Black;
+            buttonStart.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonStart.ForeColor = Color.White;
+            buttonStart.Location = new Point(3, 292);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(219, 36);
+            buttonStart.TabIndex = 5;
+            buttonStart.Text = "Start shootin'";
+            buttonStart.UseVisualStyleBackColor = false;
+            buttonStart.Click += buttonStart_Click;
+            // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.BackColor = Color.Transparent;
+            labelScore.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            labelScore.ForeColor = Color.White;
+            labelScore.Location = new Point(255, 297);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(114, 29);
+            labelScore.TabIndex = 6;
+            labelScore.Text = "SCORE: 0";
+            labelScore.Visible = false;
             // 
             // Form1
             // 
@@ -78,21 +136,30 @@
             BackgroundImage = Properties.Resources.dualwield3;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1454, 340);
+            Controls.Add(labelScore);
+            Controls.Add(buttonStart);
+            Controls.Add(label1);
             Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
+            Controls.Add(picRevolver);
+            Controls.Add(picShotgun);
             ForeColor = SystemColors.ControlText;
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picShotgun).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picRevolver).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox picShotgun;
+        private PictureBox picRevolver;
         private PictureBox pictureBox4;
+        private System.Windows.Forms.Timer timerMove;
+        private Label label1;
+        private System.Windows.Forms.Timer timerSpawn;
+        private Button buttonStart;
+        private Label labelScore;
     }
 }
