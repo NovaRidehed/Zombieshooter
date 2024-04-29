@@ -80,7 +80,6 @@
             // 
             // timerMove
             // 
-            timerMove.Enabled = true;
             timerMove.Tick += timerMove_Tick;
             // 
             // label1
@@ -98,7 +97,6 @@
             // 
             // timerSpawn
             // 
-            timerSpawn.Enabled = true;
             timerSpawn.Interval = 5000;
             timerSpawn.Tick += timerSpawn_Tick;
             // 
