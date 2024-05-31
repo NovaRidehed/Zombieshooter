@@ -37,6 +37,7 @@
             timerSpawn = new System.Windows.Forms.Timer(components);
             buttonStart = new Button();
             labelScore = new Label();
+            labelYouDied = new Label();
             ((System.ComponentModel.ISupportInitialize)picShotgun).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picRevolver).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -46,9 +47,10 @@
             // 
             picShotgun.BackColor = Color.Transparent;
             picShotgun.Image = Properties.Resources.sawedoff;
-            picShotgun.Location = new Point(130, 144);
+            picShotgun.Location = new Point(162, 180);
+            picShotgun.Margin = new Padding(4);
             picShotgun.Name = "picShotgun";
-            picShotgun.Size = new Size(439, 110);
+            picShotgun.Size = new Size(549, 138);
             picShotgun.SizeMode = PictureBoxSizeMode.Zoom;
             picShotgun.TabIndex = 1;
             picShotgun.TabStop = false;
@@ -58,9 +60,10 @@
             // 
             picRevolver.BackColor = Color.Transparent;
             picRevolver.Image = Properties.Resources.revolver;
-            picRevolver.Location = new Point(190, -3);
+            picRevolver.Location = new Point(238, -4);
+            picRevolver.Margin = new Padding(4);
             picRevolver.Name = "picRevolver";
-            picRevolver.Size = new Size(242, 117);
+            picRevolver.Size = new Size(302, 146);
             picRevolver.SizeMode = PictureBoxSizeMode.Zoom;
             picRevolver.TabIndex = 2;
             picRevolver.TabStop = false;
@@ -70,9 +73,10 @@
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = Properties.Resources.zombie;
-            pictureBox4.Location = new Point(1163, 12);
+            pictureBox4.Location = new Point(1454, 15);
+            pictureBox4.Margin = new Padding(4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(299, 381);
+            pictureBox4.Size = new Size(374, 476);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 3;
             pictureBox4.TabStop = false;
@@ -88,9 +92,10 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(1163, 12);
+            label1.Location = new Point(1454, 15);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(102, 29);
+            label1.Size = new Size(118, 33);
             label1.TabIndex = 4;
             label1.Text = "HP: 328";
             label1.Visible = false;
@@ -105,9 +110,10 @@
             buttonStart.BackColor = Color.Black;
             buttonStart.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
             buttonStart.ForeColor = Color.White;
-            buttonStart.Location = new Point(3, 292);
+            buttonStart.Location = new Point(4, 365);
+            buttonStart.Margin = new Padding(4);
             buttonStart.Name = "buttonStart";
-            buttonStart.Size = new Size(219, 36);
+            buttonStart.Size = new Size(274, 45);
             buttonStart.TabIndex = 5;
             buttonStart.Text = "Start shootin'";
             buttonStart.UseVisualStyleBackColor = false;
@@ -119,21 +125,35 @@
             labelScore.BackColor = Color.Transparent;
             labelScore.Font = new Font("Stencil", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelScore.ForeColor = Color.White;
-            labelScore.Location = new Point(255, 297);
+            labelScore.Location = new Point(319, 371);
+            labelScore.Margin = new Padding(4, 0, 4, 0);
             labelScore.Name = "labelScore";
-            labelScore.Size = new Size(114, 29);
+            labelScore.Size = new Size(133, 33);
             labelScore.TabIndex = 6;
             labelScore.Text = "SCORE: 0";
-            labelScore.Visible = false;
+            // 
+            // labelYouDied
+            // 
+            labelYouDied.AutoSize = true;
+            labelYouDied.BackColor = Color.Transparent;
+            labelYouDied.Font = new Font("Showcard Gothic", 70F, FontStyle.Bold, GraphicsUnit.Point);
+            labelYouDied.ForeColor = Color.Firebrick;
+            labelYouDied.Location = new Point(560, 119);
+            labelYouDied.Name = "labelYouDied";
+            labelYouDied.Size = new Size(793, 173);
+            labelYouDied.TabIndex = 7;
+            labelYouDied.Text = "YOU DIED!";
+            labelYouDied.Visible = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             BackgroundImage = Properties.Resources.dualwield3;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1454, 340);
+            ClientSize = new Size(1818, 425);
+            Controls.Add(labelYouDied);
             Controls.Add(labelScore);
             Controls.Add(buttonStart);
             Controls.Add(label1);
@@ -141,6 +161,7 @@
             Controls.Add(picRevolver);
             Controls.Add(picShotgun);
             ForeColor = SystemColors.ControlText;
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)picShotgun).EndInit();
@@ -159,5 +180,6 @@
         private System.Windows.Forms.Timer timerSpawn;
         private Button buttonStart;
         private Label labelScore;
+        private Label labelYouDied;
     }
 }

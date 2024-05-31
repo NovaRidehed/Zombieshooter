@@ -8,13 +8,16 @@
         // hur lång tid det måste gå mellan varje skott
         private TimeSpan fireRate;
 
+        private string name;
+
         // när som vapnet avfyrades senast
         private DateTime lastTimeFired = DateTime.Now;
 
-        public Weapon(int damage, TimeSpan fireRate)
+        public Weapon(int damage, TimeSpan fireRate, string name)
         {
             this.damage = damage;
             this.fireRate = fireRate;
+            this.name = name;
         }
 
         /// <summary>
@@ -31,12 +34,17 @@
         /// </summary>
         public bool Fire()
         {
-            if (lastTimeFired + fireRate >= DateTime.Now)
+            if (lastTimeFired + fireRate <= DateTime.Now)
             {
                 lastTimeFired = DateTime.Now;
                 return true;
             }
             return false;
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

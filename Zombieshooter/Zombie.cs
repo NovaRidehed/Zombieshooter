@@ -7,7 +7,7 @@
         private const int MIN_LEFT = 350;
 
         // antal hitpoint
-        private int hitPoints;
+        private int hitPoints = 800;
 
         // hastighet i antal procent per sekund. dvs 20, betyder att zombien flyttar sig 20% av
         // sträckan varje sekund
@@ -18,7 +18,7 @@
         private int locationPercent;
 
         // fomuläret som zombien rör sig i
-        private Form form;
+        private Form1 form;
 
         // bild som representerar zombien
         private PictureBox pic;
@@ -26,7 +26,7 @@
         // text som visa antal hitpoints
         private Label label;
 
-        public Zombie(Form form, int hitPoints, int speedPercentPerSec, int locationPercent)
+        public Zombie(Form1 form, int hitPoints, int speedPercentPerSec, int locationPercent)
         {
             this.hitPoints = hitPoints;
             this.speedPercentPerSec = speedPercentPerSec;
@@ -70,7 +70,22 @@
         /// <param name="weapon">Vapen som skjuter på zombien</param>
         public void Shoot(Weapon weapon)
         {
-            // TODO
+            if(locationPercent > 60 && weapon.ToString() == "shotgun")
+            {
+                if(locationPercent > 80)
+                {
+                    hitPoints = hitPoints - 300;
+                }
+                else
+                {
+                    hitPoints = hitPoints - 250;
+                }
+            }
+            else
+            {
+                hitPoints = hitPoints - weapon.GetDamage(); 
+            }
+            updateLabel();
 
             if (NoHitpoints())
             {
@@ -83,6 +98,10 @@
         /// </summary>
         public bool NoHitpoints()
         {
+            if(hitPoints <= 0)
+            {
+                return true;
+            }
             // TODO
             return false;
         }
@@ -98,7 +117,13 @@
         /// <summary>
         /// Ta bort bild och text från formuläret.
         /// </summary>
-        private void die()
+        public void die()
+        {
+            form.Controls.Remove(pic);
+            form.Controls.Remove(label);
+            form.removeFirstZombie();
+        }
+        public void resetZombie()
         {
             form.Controls.Remove(pic);
             form.Controls.Remove(label);
@@ -111,6 +136,10 @@
         {
             pic.Left = MIN_LEFT + (100 - locationPercent) * (MAX_LEFT - MIN_LEFT) / 100;
             label.Left = pic.Left;
+        }
+        private void updateLabel()
+        {
+            label.Text = "HP: " + hitPoints.ToString();
         }
 
         /// <summary>
@@ -135,11 +164,11 @@
         private static Label newLabel()
         {
             Label label = new Label();
-            label.Font = new Font("Stencil", 14, FontStyle.Bold);
+            label.Font = new Font("Stencil", 12, FontStyle.Regular);
             label.Top = 12;
             label.Left = 0; // set elsewhere
-            label.Width = 120;
-            label.Text = "HP: 999"; // set elsewhere
+            label.Width = 110;
+            label.Text = "HP: 800"; // set elsewhere
             label.ForeColor = Color.White;
             label.BackColor = Color.Transparent;
             return label;
